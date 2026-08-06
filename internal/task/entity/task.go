@@ -7,7 +7,7 @@ type TaskStatus uint8
 type Task struct {
 	id          int
 	description string
-	status      TaskStatus
+	Status      TaskStatus
 	createdAt   time.Time
 	updatedAt   time.Time
 }
@@ -17,7 +17,7 @@ func New(id int, description string) *Task {
 	return &Task{
 		id:          id,
 		description: description,
-		status:      0,
+		Status:      0,
 		createdAt:   t,
 		updatedAt:   t,
 	}
