@@ -9,10 +9,10 @@ type Repo interface {
 	PrintEventsList() ([]entity.Task, error)
 }
 
-type TaskService struct {
+type taskService struct {
 	repo Repo
 }
 
-func New(r Repo) *TaskService {
-	return &TaskService{repo: r}
+func New(r Repo) *taskService {
+	return &taskService{repo: r}
 }

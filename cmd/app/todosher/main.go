@@ -7,12 +7,10 @@ import (
 )
 
 func main() {
-	args := os.Args
+	err := app.Run(os.Args[1:])
 
-	if len(args) < 2 {
-		_, _ = fmt.Fprintln(os.Stderr, "need more arguments for todosher")
+	if err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "failed: %v", err)
 		os.Exit(1)
 	}
-
-	app.Run(args[1:])
 }

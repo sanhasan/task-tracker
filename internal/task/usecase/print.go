@@ -5,7 +5,7 @@ import (
 	"task-tracker/internal/task/entity"
 )
 
-func (t *TaskService) PrintAll() ([]entity.Task, error) {
+func (t *taskService) PrintAll() ([]entity.Task, error) {
 	tasks, err := t.repo.PrintEventsList()
 
 	if err != nil {
@@ -14,7 +14,7 @@ func (t *TaskService) PrintAll() ([]entity.Task, error) {
 	return tasks, nil
 }
 
-func (t *TaskService) PrintToDo() ([]entity.Task, error) {
+func (t *taskService) PrintToDo() ([]entity.Task, error) {
 	status := "todo"
 	return t.print(func(st entity.TaskStatus) bool {
 		if st.ToString() == status {
@@ -24,7 +24,7 @@ func (t *TaskService) PrintToDo() ([]entity.Task, error) {
 	}, status)
 }
 
-func (t *TaskService) PrintINProcess() ([]entity.Task, error) {
+func (t *taskService) PrintINProcess() ([]entity.Task, error) {
 	status := "in process"
 	return t.print(func(st entity.TaskStatus) bool {
 		if st.ToString() == status {
@@ -34,7 +34,7 @@ func (t *TaskService) PrintINProcess() ([]entity.Task, error) {
 	}, status)
 }
 
-func (t *TaskService) PrintDone() ([]entity.Task, error) {
+func (t *taskService) PrintDone() ([]entity.Task, error) {
 	status := "done"
 	return t.print(func(st entity.TaskStatus) bool {
 		if st.ToString() == status {
@@ -44,7 +44,7 @@ func (t *TaskService) PrintDone() ([]entity.Task, error) {
 	}, status)
 }
 
-func (t *TaskService) print(filter func(task entity.TaskStatus) bool, name string) ([]entity.Task, error) {
+func (t *taskService) print(filter func(task entity.TaskStatus) bool, name string) ([]entity.Task, error) {
 	tasks, err := t.repo.PrintEventsList()
 
 	if err != nil {
