@@ -3,7 +3,7 @@ package task
 import "task-tracker/internal/task/entity"
 
 type Service interface {
-	Add(string) error
+	Add(string) (int, error)
 	Delete(int) error
 	Update(int) error
 	PrintAll() ([]entity.Task, error)

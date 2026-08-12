@@ -7,10 +7,11 @@ import (
 )
 
 func main() {
-	err := app.Run(os.Args[1:])
+	resp, err := app.Run(os.Args[1:])
 
 	if err != nil {
 		_, _ = fmt.Fprintf(os.Stderr, "failed: %v", err)
 		os.Exit(1)
 	}
+	fmt.Printf("sucsesful: %s", resp)
 }

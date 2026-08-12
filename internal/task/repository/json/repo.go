@@ -9,7 +9,7 @@ func New() *repo {
 	return &repo{}
 }
 
-func (r *repo) AddEvent(description string) error {
+func (r *repo) AddEvent(description string) (int, error) {
 
 }
 

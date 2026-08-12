@@ -6,7 +6,7 @@ var (
 	ErrUnsupportedOperation = errors.New("unsupported operation")
 )
 
-func (h *api) ParseCommand(args []string) error {
+func (h *api) ParseCommand(args []string) (string, error) {
 	switch args[0] {
 	case "help":
 		return h.handler.Help(args[1:])
@@ -19,5 +19,5 @@ func (h *api) ParseCommand(args []string) error {
 	case "print":
 		return h.handler.Print(args[1:])
 	}
-	return ErrUnsupportedOperation
+	return "", ErrUnsupportedOperation
 }

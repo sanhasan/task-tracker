@@ -2,10 +2,10 @@ package useCase
 
 import "fmt"
 
-func (t *taskService) Add(desc string) error {
-	err := t.repo.AddEvent(desc)
+func (t *taskService) Add(desc string) (int, error) {
+	id, err := t.repo.AddEvent(desc)
 	if err != nil {
-		return fmt.Errorf("failed add event: %w", err)
+		return 0, fmt.Errorf("failed add event: %w", err)
 	}
-	return nil
+	return id, nil
 }
