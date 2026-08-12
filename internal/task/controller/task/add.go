@@ -7,7 +7,7 @@ import (
 
 func (h *Handler) Add(args []string) (string, error) {
 	if len(args) == 0 {
-		return "", fmt.Errorf("")
+		return "", ErrFewArguments
 	}
 	desc := args[0]
 

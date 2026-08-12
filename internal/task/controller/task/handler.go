@@ -1,6 +1,14 @@
 package task
 
-import "task-tracker/internal/task/entity"
+import (
+	"errors"
+
+	"task-tracker/internal/task/entity"
+)
+
+var (
+	ErrFewArguments = errors.New("soo few arguments")
+)
 
 type Service interface {
 	Add(string) (int, error)
