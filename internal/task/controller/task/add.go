@@ -9,6 +9,9 @@ func (h *Handler) Add(args []string) (string, error) {
 	if len(args) == 0 {
 		return "", ErrFewArguments
 	}
+	if len(args) > 1 {
+		return "", ErrALotOFArguments
+	}
 	desc := args[0]
 
 	id, err := h.service.Add(desc)

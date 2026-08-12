@@ -7,7 +7,9 @@ import (
 )
 
 var (
-	ErrFewArguments = errors.New("soo few arguments")
+	ErrFewArguments    = errors.New("soo few arguments")
+	ErrALotOFArguments = errors.New("a lot of arguments")
+	ErrWrongArgument   = errors.New("wrong arguments")
 )
 
 type Service interface {

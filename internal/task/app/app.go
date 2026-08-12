@@ -19,7 +19,11 @@ func Run(args []string) (string, error) {
 	resp, err := app.ParseCommand(args)
 
 	if err != nil {
-		if errors.Is(err, controller.ErrUnsupportedOperation) {
+		if errors.Is(err, controller.ErrUnsupportedOperation) ||
+			errors.Is(err, controller.ErrZeroArguments) ||
+			errors.Is(err, hand.ErrFewArguments) ||
+			errors.Is(err, hand.ErrALotOFArguments) ||
+			errors.Is(err, hand.ErrWrongArgument) {
 			return "", fmt.Errorf("%v. Use todosher help to see the supported commands", err)
 		}
 		return "", err

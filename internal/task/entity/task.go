@@ -1,6 +1,10 @@
 package entity
 
-import "time"
+import (
+	"strconv"
+	"strings"
+	"time"
+)
 
 type TaskStatus uint8
 
@@ -21,6 +25,17 @@ func New(id int, description string) *Task {
 		createdAt:   t,
 		updatedAt:   t,
 	}
+}
+
+func (t *Task) ToString() string {
+	task := make([]string, 5)
+	task[0] = strconv.Itoa(t.id)
+	task[1] = t.Status.ToString()
+	task[2] = t.description
+	task[3] = t.updatedAt.String()
+	task[4] = t.createdAt.String()
+
+	return strings.Join(task, "   ")
 }
 
 func (t TaskStatus) ToString() string {

@@ -4,9 +4,13 @@ import "errors"
 
 var (
 	ErrUnsupportedOperation = errors.New("unsupported operation")
+	ErrZeroArguments        = errors.New("choose operation")
 )
 
 func (h *api) ParseCommand(args []string) (string, error) {
+	if len(args) == 0 {
+		return "", ErrZeroArguments
+	}
 	switch args[0] {
 	case "help":
 		return h.handler.Help(args[1:])
