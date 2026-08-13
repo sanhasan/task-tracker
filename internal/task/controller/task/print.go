@@ -24,9 +24,9 @@ func (h *Handler) Print(args []string) (string, error) {
 			} else {
 				switch args[1] {
 				case "todo":
-					list, err = h.service.PrintToDo()
+					list, err = h.service.PrintTODO()
 					name = "todo"
-				case "in process":
+				case "in-process":
 					list, err = h.service.PrintINProcess()
 					name = "in process"
 				case "done":

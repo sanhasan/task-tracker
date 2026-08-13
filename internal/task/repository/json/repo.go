@@ -17,7 +17,14 @@ func (r *repo) DeleteEvent(id int) error {
 	return nil
 }
 
-func (r *repo) UpdateStatus(id int) error {
+func (r *repo) GetEvent(id int) (entity.Task, error) {
+	return *entity.New(id, ""), nil
+}
+
+func (r *repo) UpdateTaskDescription(id int, desc string) error {
+	return nil
+}
+func (r *repo) UpdateTaskStatus(id int, status entity.TaskStatus) error {
 	return nil
 }
 

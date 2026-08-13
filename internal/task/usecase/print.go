@@ -14,7 +14,7 @@ func (t *taskService) PrintAll() ([]entity.Task, error) {
 	return tasks, nil
 }
 
-func (t *taskService) PrintToDo() ([]entity.Task, error) {
+func (t *taskService) PrintTODO() ([]entity.Task, error) {
 	status := "todo"
 	return t.print(func(st entity.TaskStatus) bool {
 		if st.ToString() == status {

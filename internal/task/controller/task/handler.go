@@ -15,9 +15,10 @@ var (
 type Service interface {
 	Add(string) (int, error)
 	Delete(int) error
-	Update(int) error
+	UpdateDescription(int, string) error
+	UpdateStatus(int, entity.TaskStatus) error
 	PrintAll() ([]entity.Task, error)
-	PrintToDo() ([]entity.Task, error)
+	PrintTODO() ([]entity.Task, error)
 	PrintINProcess() ([]entity.Task, error)
 	PrintDone() ([]entity.Task, error)
 }

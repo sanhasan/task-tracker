@@ -5,7 +5,9 @@ import "task-tracker/internal/task/entity"
 type Repo interface {
 	AddEvent(description string) (int, error)
 	DeleteEvent(id int) error
-	UpdateStatus(id int) error
+	GetEvent(id int) (entity.Task, error)
+	UpdateTaskDescription(id int, desc string) error
+	UpdateTaskStatus(id int, status entity.TaskStatus) error
 	PrintEventsList() ([]entity.Task, error)
 }
 

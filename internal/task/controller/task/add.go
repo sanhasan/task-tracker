@@ -3,16 +3,15 @@ package task
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func (h *Handler) Add(args []string) (string, error) {
 	if len(args) == 0 {
 		return "", ErrFewArguments
 	}
-	if len(args) > 1 {
-		return "", ErrALotOFArguments
-	}
-	desc := args[0]
+
+	desc := strings.Join(args, " ")
 
 	id, err := h.service.Add(desc)
 	if err != nil {

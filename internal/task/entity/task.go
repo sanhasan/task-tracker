@@ -1,12 +1,20 @@
 package entity
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
 )
 
 type TaskStatus uint8
+
+const (
+	StatusUndefined TaskStatus = iota
+	StatusTodo
+	StatusINProcess
+	StatusDone
+)
 
 type Task struct {
 	id          int
@@ -40,13 +48,41 @@ func (t *Task) ToString() string {
 
 func (t TaskStatus) ToString() string {
 	switch t {
-	case 0:
+	case StatusTodo:
 		return "todo"
-	case 1:
+	case StatusINProcess:
 		return "in process"
-	case 2:
+	case StatusDone:
 		return "done"
 	default:
 		return "undefined"
 	}
+}
+
+func StringTOTaskStatus(status string) (TaskStatus, error) {
+	switch status {
+	case "todo":
+		return StatusTodo, nil
+	case "in process":
+		return StatusINProcess, nil
+	case "done":
+		return StatusDone, nil
+	default:
+		return StatusUndefined, fmt.Errorf("anavailable status")
+	}
+}
+
+var allowedTransitions = map[TaskStatus][]TaskStatus{
+	StatusTodo:      {StatusINProcess},
+	StatusINProcess: {StatusINProcess, StatusDone},
+	StatusDone:      {StatusINProcess},
+}
+
+func (s TaskStatus) CanTransitionTO(next TaskStatus) bool {
+	for _, st := range allowedTransitions[s] {
+		if st == next {
+			return true
+		}
+	}
+	return false
 }
