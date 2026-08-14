@@ -11,7 +11,7 @@ COMMANDS:
   add <description>                 add a new task
   delete <id>                       delete a task by its id
   update <id, status>               update task status
-  update -cn <id, description>      rewrite description task by its id
+  rename <id, description>          rewrite description task by its id
   print                             show all tasks
   print -t <status>                 show tasks with the given status
   help                              show this guide

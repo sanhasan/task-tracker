@@ -10,8 +10,11 @@ import (
 )
 
 func Run(args []string) (string, error) {
+	repo, err := repository.New("/home/zver/my-go-projects/task-tracker/tasks.json")
+	if err != nil {
+		return "", fmt.Errorf("create repository: %v", err)
+	}
 
-	repo := repository.New("")
 	service := useCase.New(repo)
 	handler := hand.New(service)
 	app := controller.New(handler)

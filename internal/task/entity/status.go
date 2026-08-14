@@ -31,7 +31,7 @@ func (t TaskStatus) TOString() string {
 	case StatusTodo:
 		return "todo"
 	case StatusINProcess:
-		return "in process"
+		return "in-process"
 	case StatusDone:
 		return "done"
 	default:
@@ -43,7 +43,7 @@ func StringTOTaskStatus(status string) (TaskStatus, error) {
 	switch status {
 	case "todo":
 		return StatusTodo, nil
-	case "in process":
+	case "in-process":
 		return StatusINProcess, nil
 	case "done":
 		return StatusDone, nil

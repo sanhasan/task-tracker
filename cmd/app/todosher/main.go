@@ -10,8 +10,8 @@ func main() {
 	resp, err := app.Run(os.Args[1:])
 
 	if err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "failed: %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "failed:\n %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Printf("sucsesful: %s\n", resp)
+	fmt.Printf("sucsesful:\n %s\n", resp)
 }

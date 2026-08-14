@@ -25,7 +25,7 @@ func (t *taskService) PrintTODO() ([]entity.Task, error) {
 }
 
 func (t *taskService) PrintINProcess() ([]entity.Task, error) {
-	status := "in process"
+	status := "in-process"
 	return t.print(func(st entity.TaskStatus) bool {
 		if st.TOString() == status {
 			return true

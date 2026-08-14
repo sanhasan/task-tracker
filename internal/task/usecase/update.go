@@ -16,7 +16,7 @@ func (t *taskService) UpdateDescription(id int, desc string) error {
 func (t *taskService) UpdateStatus(id int, status entity.TaskStatus) error {
 	task, err := t.repo.GetEvent(id)
 	if err != nil {
-		return fmt.Errorf("failed update event status: %w", err)
+		return fmt.Errorf("failed fined task: %w", err)
 	}
 
 	if !task.Status().CanTransitionTO(status) {

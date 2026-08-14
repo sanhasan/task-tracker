@@ -20,6 +20,8 @@ func (h *api) ParseCommand(args []string) (string, error) {
 		return h.handler.Delete(args[1:])
 	case "update":
 		return h.handler.Update(args[1:])
+	case "rename":
+		return h.handler.Rename(args[1:])
 	case "print":
 		return h.handler.Print(args[1:])
 	}

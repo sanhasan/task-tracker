@@ -39,3 +39,17 @@ func (t *Task) ToString() string {
 func (t *Task) Status() TaskStatus {
 	return t.status
 }
+
+func (t *Task) Id() int {
+	return t.id
+}
+
+func (t *Task) UpdateDescription(desc string) {
+	t.description = desc
+	t.updatedAt = time.Now()
+}
+
+func (t *Task) UpdateStatus(status TaskStatus) {
+	t.status = status
+	t.updatedAt = time.Now()
+}
