@@ -19,9 +19,9 @@ func (t *taskService) UpdateStatus(id int, status entity.TaskStatus) error {
 		return fmt.Errorf("failed update event status: %w", err)
 	}
 
-	if !task.Status.CanTransitionTO(status) {
+	if !task.Status().CanTransitionTO(status) {
 		return fmt.Errorf("failed switch current status %s into %s: %w",
-			task.Status.ToString(), status.ToString(), err)
+			task.Status().TOString(), status.TOString(), err)
 	}
 
 	err = t.repo.UpdateTaskStatus(id, status)

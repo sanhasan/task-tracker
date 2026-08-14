@@ -11,7 +11,7 @@ import (
 
 func Run(args []string) (string, error) {
 
-	repo := repository.New()
+	repo := repository.New("")
 	service := useCase.New(repo)
 	handler := hand.New(service)
 	app := controller.New(handler)

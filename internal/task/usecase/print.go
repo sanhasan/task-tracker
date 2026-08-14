@@ -17,7 +17,7 @@ func (t *taskService) PrintAll() ([]entity.Task, error) {
 func (t *taskService) PrintTODO() ([]entity.Task, error) {
 	status := "todo"
 	return t.print(func(st entity.TaskStatus) bool {
-		if st.ToString() == status {
+		if st.TOString() == status {
 			return true
 		}
 		return false
@@ -27,7 +27,7 @@ func (t *taskService) PrintTODO() ([]entity.Task, error) {
 func (t *taskService) PrintINProcess() ([]entity.Task, error) {
 	status := "in process"
 	return t.print(func(st entity.TaskStatus) bool {
-		if st.ToString() == status {
+		if st.TOString() == status {
 			return true
 		}
 		return false
@@ -37,7 +37,7 @@ func (t *taskService) PrintINProcess() ([]entity.Task, error) {
 func (t *taskService) PrintDone() ([]entity.Task, error) {
 	status := "done"
 	return t.print(func(st entity.TaskStatus) bool {
-		if st.ToString() == status {
+		if st.TOString() == status {
 			return true
 		}
 		return false
@@ -54,7 +54,7 @@ func (t *taskService) print(filter func(task entity.TaskStatus) bool, name strin
 	res := make([]entity.Task, 0)
 
 	for _, v := range tasks {
-		if filter(v.Status) {
+		if filter(v.Status()) {
 			res = append(res, v)
 		}
 	}

@@ -26,6 +26,19 @@ func (t TaskStatus) CanTransitionTO(next TaskStatus) bool {
 	return false
 }
 
+func (t TaskStatus) TOString() string {
+	switch t {
+	case StatusTodo:
+		return "todo"
+	case StatusINProcess:
+		return "in process"
+	case StatusDone:
+		return "done"
+	default:
+		return "undefined"
+	}
+}
+
 func StringTOTaskStatus(status string) (TaskStatus, error) {
 	switch status {
 	case "todo":

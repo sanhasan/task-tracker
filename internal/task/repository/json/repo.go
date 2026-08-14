@@ -3,10 +3,13 @@ package repository
 import "task-tracker/internal/task/entity"
 
 type repo struct {
+	path string
 }
 
-func New() *repo {
-	return &repo{}
+func New(path string) *repo {
+	return &repo{
+		path: path,
+	}
 }
 
 func (r *repo) AddEvent(description string) (int, error) {
