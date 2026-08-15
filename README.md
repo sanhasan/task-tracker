@@ -1,21 +1,29 @@
 # Task Tracker
 
-## Description
+## Описание
 
-This tracker is simple command line interface (CLI) to track what you need to do, what you have done, and what you are currently working on. 
+Это трекер простой command line interface (CLI), который отслеживает что нужно сделать, что уже делается и что уже сделано.
 
-The user should be able to:
+Пользователь может:
 
-* Add, Update, and Delete tasks
+* Добавлять, обновлять и удалять задачи
 
-* Mark a task as in progress or done
+* Отмечать прогресс по задачам
 
-* List all tasks
+* Выводить список задач
 
-* List all tasks that are done
+* Выводить список сделанных задач
 
-* List all tasks that are not done
+* Выводить список начатых задач
 
-* List all tasks that are in progress
+* Выводить список не начатых задач
 
-## How to use
+## Как использовать
+
+## Список технологий
+
+* Golang
+    * os
+    * encoding/json
+* Git / Github
+* Clean Architecture 
