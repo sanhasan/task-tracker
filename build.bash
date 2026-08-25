@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 APP_NAME="todosher"
-CMD_PATH="./cmd/app"
+CMD_PATH="./cmd/app/todosher"
 OUT_DIR="pkg"
 
 mkdir -p "${OUT_DIR}"
