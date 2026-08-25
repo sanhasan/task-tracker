@@ -1,15 +1,26 @@
 package config
 
-type Config struct {
-	AppName string
-	// через сколько дней чистить логи
-	// путь где хранить json с базой
-	// путь где хранить логи
+import (
+	"os"
+	"path/filepath"
+)
 
+type Config struct {
+	AppName       string
+	TasksFilePath string
 }
 
 func New() *Config {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		homeDir = "."
+	}
+
+	configDir := filepath.Join(homeDir, ".todosher")
+	_ = os.MkdirAll(configDir, 0755)
+
 	return &Config{
-		AppName: "todosher",
+		AppName:       "todosher",
+		TasksFilePath: filepath.Join(configDir, "tasks.json"),
 	}
 }

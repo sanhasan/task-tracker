@@ -3,14 +3,15 @@ package app
 import (
 	"errors"
 	"fmt"
+	"task-tracker/internal/task/config"
 	"task-tracker/internal/task/controller"
 	hand "task-tracker/internal/task/controller/task"
 	repository "task-tracker/internal/task/repository/json"
 	"task-tracker/internal/task/usecase"
 )
 
-func Run(args []string) (string, error) {
-	repo, err := repository.New("/home/zver/my-go-projects/task-tracker/tasks.json")
+func Run(cfg *config.Config, args []string) (string, error) {
+	repo, err := repository.New(cfg.TasksFilePath)
 	if err != nil {
 		return "", fmt.Errorf("create repository: %v", err)
 	}
@@ -27,7 +28,7 @@ func Run(args []string) (string, error) {
 			errors.Is(err, hand.ErrFewArguments) ||
 			errors.Is(err, hand.ErrALotOFArguments) ||
 			errors.Is(err, hand.ErrWrongArgument) {
-			return "", fmt.Errorf("%v. Use todosher help to see the supported commands", err)
+			return "", fmt.Errorf("%v. Use '%s help' to see the supported commands", err, cfg.AppName)
 		}
 		return "", err
 	}

@@ -3,15 +3,19 @@ package main
 import (
 	"fmt"
 	"os"
+
 	"task-tracker/internal/task/app"
+	"task-tracker/internal/task/config"
 )
 
 func main() {
-	resp, err := app.Run(os.Args[1:])
+	cfg := config.New()
+
+	resp, err := app.Run(cfg, os.Args[1:])
 
 	if err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "failed:\n %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Printf("sucsesful:\n %s\n", resp)
+	fmt.Print(resp)
 }
