@@ -1,8 +1,11 @@
-# Task Tracker
+# Task Tracker (todosher)
 
-## Описание
+[![Go](https://img.shields.io/badge/Go-1.20+-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Platforms](https://img.shields.io/badge/Platforms-Linux%20%7C%20macOS%20%7C%20Windows-blue?style=for-the-badge)](https://github.com/ВАШ_НИК/НАЗВАНИЕ_РЕПО/releases)
+[![Release](https://img.shields.io/github/v/release/sanhasan/task-tracker?style=for-the-badge&color=green)](https://github.com/ВАШ_НИК/НАЗВАНИЕ_РЕПО/releases/latest)
 
-Это трекер простой command line interface (CLI), который отслеживает что нужно сделать, что уже делается и что уже сделано.
+Простой и удобный трекер задач с интерфейсом командной строки (CLI), который помогает отслеживать, что нужно сделать, что уже в процессе и что выполнено.
 
 Пользователь может:
 
@@ -17,6 +20,18 @@
 * Выводить список начатых задач
 
 * Выводить список не начатых задач
+
+## Скачать готовое приложение
+
+Вам не нужно собирать проект самостоятельно. Скачайте готовый исполняемый файл для вашей системы из раздела [Releases](https://github.com/sanhasan/task-tracker/releases/latest) или по прямым ссылкам ниже:
+
+| Операционная система | Архитектура | Прямая ссылка для скачивания                                                                                               |
+| :--- | :--- |:---------------------------------------------------------------------------------------------------------------------------|
+| **Linux** | AMD64 (x86_64) | [todosher-linux-amd64](https://github.com/sanhasan/task-tracker/releases/latest/download/todosher-linux-amd64)             |
+| **Linux** | ARM64 | [todosher-linux-arm64](https://github.com/sanhasan/task-tracker/releases/latest/download/todosher-linux-arm64)             |
+| **macOS** | Intel (x86_64) | [todosher-darwin-amd64](https://github.com/sanhasan/task-tracker/releases/latest/download/todosher-darwin-amd64)           |
+| **macOS** | Apple Silicon (M1/M2/M3) | [todosher-darwin-arm64](https://github.com/sanhasan/task-tracker/releases/latest/download/todosher-darwin-arm64)           |
+| **Windows** | AMD64 (x86_64) | [todosher-windows-amd64.exe](https://github.com/sanhasan/task-tracker/releases/latest/download/todosher-windows-amd64.exe) |
 
 ## Список технологий
 
